@@ -34,6 +34,9 @@ set completeopt=noinsert,menuone
 " Enable packloadall for pack plugins.
 packloadall
 
+" Install vim-plug by running following command in your terminal
+" curl -s -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 call plug#begin()
 
 Plug 'preservim/nerdtree'
