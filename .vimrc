@@ -17,6 +17,8 @@ set autoindent
 set smartindent
 set tabstop=4 shiftwidth=4 "expandtab
 set title
+set incsearch
+set hlsearch
 
 filetype plugin on
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -40,6 +42,7 @@ packloadall
 call plug#begin()
 
 Plug 'preservim/nerdtree'
+Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -48,17 +51,26 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'maxboisvert/vim-simple-complete'
 Plug 'BrandonRoehl/auto-omni'
 Plug 'LunarWatcher/auto-pairs'
+Plug 'vim-autoformat/vim-autoformat'
+Plug 'romainl/vim-cool'
+Plug 'DougBeney/pickachu'
 
 call plug#end()
 
-let g:AutoPairsShortcutToggle = '<C-P>'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
+" enable line numbers in NERDTree
+let NERDTreeShowLineNumbers=1
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber
+let g:AutoPairsShortcutToggle = '<M-P>'
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'catppuccin_mocha'
+let g:airline_theme = 'catppuccin_macchiato'
+let g:cool_total_matches = 1
+let g:pickachu_default_color_format = "rgba"
 
 " Set Colorscheme to Atom-Dark-2q56
 " colorscheme atom-dark-256
