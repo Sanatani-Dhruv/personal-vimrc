@@ -20,6 +20,8 @@ set title
 set incsearch
 set hlsearch
 set linebreak
+set ignorecase
+set smartcase
 
 " Mapping Ctrl + n , Ctrl + p to Swapping Tabs in Normal Mode
 
@@ -62,6 +64,7 @@ Plug 'vim-autoformat/vim-autoformat'
 Plug 'romainl/vim-cool'
 Plug 'DougBeney/pickachu'
 Plug 'dense-analysis/ale'
+Plug 'gosukiwi/vim-atom-dark'
 
 call plug#end()
 
