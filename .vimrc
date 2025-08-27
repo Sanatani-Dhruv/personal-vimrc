@@ -19,6 +19,13 @@ set tabstop=4 shiftwidth=4 "expandtab
 set title
 set incsearch
 set hlsearch
+set linebreak
+
+" Mapping Ctrl + n , Ctrl + p to Swapping Tabs in Normal Mode
+
+nnoremap <C-n> :tabn<cr>
+nnoremap <C-p> :tabprevious<cr>
+nmap <silent> <C-e> <Plug>(ale_next_wrap)
 
 filetype plugin on
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -54,6 +61,7 @@ Plug 'LunarWatcher/auto-pairs'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'romainl/vim-cool'
 Plug 'DougBeney/pickachu'
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
@@ -73,6 +81,17 @@ let g:cool_total_matches = 1
 let g:pickachu_default_color_format = "rgba"
 
 " Set Colorscheme to Atom-Dark-2q56
-" colorscheme atom-dark-256
+colorscheme atom-dark-256
 set termguicolors
-colorscheme catppuccin_mocha
+" colorscheme catppuccin_mocha
+
+" Mapping <F3> to NERDTreeToggle
+nnoremap <F3> :NERDTreeToggle<cr>
+" Mapping <F4> Terminal in vim
+nnoremap <F4> :terminal<cr>
+
+" Mapping Ctrl + <Arrow Keys> to Swapping Panes in Normal Mode
+nnoremap <C-Up> <c-w>k
+nnoremap <C-Down> <c-w>j
+nnoremap <C-Left> <c-w>h
+nnoremap <C-Right> <c-w>l
