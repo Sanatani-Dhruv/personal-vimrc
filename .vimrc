@@ -22,6 +22,7 @@ set hlsearch
 set linebreak
 set ignorecase
 set smartcase
+set showcmd
 
 " Mapping Ctrl + n , Ctrl + p to Swapping Tabs in Normal Mode
 
@@ -79,7 +80,9 @@ let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
 let g:AutoPairsShortcutToggle = '<M-P>'
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'catppuccin_macchiato'
+" let g:airline_theme = 'catppuccin_macchiato'
+let g:airline_theme = 'term'
+
 let g:cool_total_matches = 1
 let g:pickachu_default_color_format = "rgba"
 
@@ -89,7 +92,7 @@ set termguicolors
 " colorscheme catppuccin_mocha
 
 " Mapping <F3> to NERDTreeToggle
-nnoremap <F3> :NERDTreeToggle<cr>
+nnoremap <F3> :NERDTreeToggle<cr><c-w>=<cr>
 " Mapping <F4> Terminal in vim
 nnoremap <F4> :terminal<cr>
 
@@ -98,3 +101,15 @@ nnoremap <C-Up> <c-w>k
 nnoremap <C-Down> <c-w>j
 nnoremap <C-Left> <c-w>h
 nnoremap <C-Right> <c-w>l
+
+" Mapping <F5> to Command Which will run the current Python File (Without Saving)
+nnoremap <F5> :!clear;echo "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";python3 %<cr>
+
+" Mapping Shift + <F5> to Command Which will run the current Python File (With Saving)
+nnoremap <S-F5> :w<cr> :!clear;echo "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";python3 %<cr>
+
+" Mapping <F6> to Command Which will run the current C File (Without Saving)
+nnoremap <F6> :!clear;echo "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";gcc % && ./a.out <cr>
+
+" Mapping Shift + <F6> to Command Which will run the current C File (With Saving)
+nnoremap <F6> :w<cr> :!clear;echo "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";gcc % && ./a.out <cr>
