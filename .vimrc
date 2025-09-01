@@ -131,7 +131,9 @@ nnoremap ,j :!clear;clear;echo -e "\n ██████╗ ██╗   ██�
 " Mapping Ctrl + n , Ctrl + p to Swapping Tabs in Normal Mode
 nnoremap <C-n> :tabn<cr>
 nnoremap <C-p> :tabprevious<cr>
-nmap <silent> <C-e> <Plug>(ale_next_wrap)
+" nmap <silent> <C-e> <Plug>(ale_next_wrap)
+nmap ,e <Plug>(ale_next_wrap)
+nmap ,E <Plug>(ale_previous_wrap)
 
 " Mapping <F3> to NERDTreeToggle
 nnoremap <F3> :NERDTreeToggle<cr><c-w>=<cr>
