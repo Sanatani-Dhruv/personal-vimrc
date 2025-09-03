@@ -133,11 +133,35 @@ nnoremap ,j :w<cr>:!clear;clear;echo -e "\n ██████╗ ██╗   �
 
 " Mapping Ctrl + n , Ctrl + p to Swapping Tabs in Normal Mode
 nnoremap <C-n> :tabn<cr>
-nnoremap <C-p> :tabprevious<cr>
+" nnoremap <C-p> :tabprevious<cr>
 
 " nmap <silent> <C-e> <Plug>(ale_next_wrap)
 nmap ,e <Plug>(ale_next_wrap)
 nmap ,E <Plug>(ale_previous_wrap)
+
+" --------------------------------------------------
+"                    ALE config
+"                   ------------
+" You Should Install Linters Manually,
+"
+" Like python3-mypy, python3-bandit python3-pylint for python
+"
+" For Debian Based Systems :
+" sudo apt install python3-mypy python3-bandit python3-pylint*
+"
+" For Termux :
+" pkg install python3-mypy python3-bandit python3-pylint*
+" --------------------------------------------------
+" let g:ale_linters = {'python': ['flake8', 'pylint', 'bandit', 'mypy', 'pycodestyle'], 'shell': ['shellcheck']} 
+" let g:ale_linters = {'python': ['flake8', 'pylint', 'pycodestyle'], 'shell': ['shellcheck']} 
+" let g:syntastic_python_pylint_args = '-E'
+" let g:ale_python_pylint_options = '--rcfile '.expand('~/.vim/.pylintrc')
+
+let g:syntastic_quiet_messages = {
+        \ "!level":  "errors",
+        \ "type":    "style",
+        \ "regex":   '.*',
+        \ "file:p":  '.*' }
 
 " Mapping <F3> to NERDTreeToggle
 nnoremap <F3> :NERDTreeToggle<cr><c-w>=<cr>
