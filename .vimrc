@@ -23,7 +23,7 @@ set linebreak
 set ignorecase
 set smartcase
 set showcmd
-setlocal spell spelllang=en_us
+" setlocal spell spelllang=en_us
 
 
 
@@ -63,7 +63,8 @@ Plug 'romainl/vim-cool'
 Plug 'DougBeney/pickachu'
 Plug 'dense-analysis/ale'
 Plug 'gosukiwi/vim-atom-dark'
-
+Plug 'wolandark/vim-live-server', { 'do': 'sudo npm install -g live-server' }
+" Plug 'wolandark/vim-live-server', { 'do': 'sudo npm install -g browser-sync' }
 call plug#end()
 
 
@@ -174,8 +175,13 @@ nnoremap <C-Up> <c-w>k
 nnoremap <C-Down> <c-w>j
 nnoremap <C-Left> <c-w>h
 nnoremap <C-Right> <c-w>l
-nnoremap ,s :set nospell<cr>
-nnoremap ,S :setlocal spell spelllang=en_us<cr>
+nnoremap ,S :set nospell<cr>
+nnoremap ,s :setlocal spell spelllang=en_us<cr>
 
 " Mapping <leader> + <F12> to Source "~/.vimrc" 
 nnoremap ,<F12> :source ~/.vimrc<cr>
+
+" nnoremap ,H :!live-server % --no-browser<cr>
+" nnoremap ,h :!live-server . --no-browser<cr>
+nmap ,h :StartLiveServer <cr>
+nmap ,k :KillLiveServer <cr>
