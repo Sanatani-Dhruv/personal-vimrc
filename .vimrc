@@ -64,6 +64,7 @@ Plug 'DougBeney/pickachu'
 Plug 'dense-analysis/ale'
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'wolandark/vim-live-server', { 'do': 'sudo npm install -g live-server' }
+Plug 'tpope/vim-fugitive'
 " Plug 'wolandark/vim-live-server', { 'do': 'sudo npm install -g browser-sync' }
 call plug#end()
 
@@ -140,8 +141,11 @@ nnoremap <C-n> :tabn<cr>
 " nnoremap <C-p> :tabprevious<cr>
 
 " nmap <silent> <C-e> <Plug>(ale_next_wrap)
-nmap ,e <Plug>(ale_next_wrap)
-nmap ,E <Plug>(ale_previous_wrap)
+nnoremap ,e <Plug>(ale_next_wrap)
+nnoremap ,E <Plug>(ale_previous_wrap)
+
+" Save all file with <leader> + <space>
+nnoremap ,<space> :wa<cr>
 
 " --------------------------------------------------
 "                    ALE config
