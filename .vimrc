@@ -26,7 +26,6 @@ set showcmd
 " setlocal spell spelllang=en_us
 
 
-
 filetype plugin on
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
@@ -35,6 +34,7 @@ set omnifunc=syntaxcomplete#Complete
 " Enable omni completion per file.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType html setlocal filetype=php
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
@@ -49,7 +49,6 @@ packloadall
 call plug#begin()
 
 Plug 'preservim/nerdtree'
-Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -58,19 +57,20 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'maxboisvert/vim-simple-complete'
 Plug 'BrandonRoehl/auto-omni'
 Plug 'LunarWatcher/auto-pairs'
-Plug 'vim-autoformat/vim-autoformat'
 Plug 'romainl/vim-cool'
 Plug 'DougBeney/pickachu'
 Plug 'dense-analysis/ale'
 Plug 'gosukiwi/vim-atom-dark'
-Plug 'wolandark/vim-live-server', { 'do': 'sudo npm install -g live-server' }
 Plug 'tpope/vim-fugitive'
-" Plug 'wolandark/vim-live-server', { 'do': 'sudo npm install -g browser-sync' }
+Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
+Plug 'vim-scripts/SyntaxComplete'
+Plug 'vim-scripts/dbext.vim'
+
 call plug#end()
 
-
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 
 " enable line numbers in NERDTree
@@ -85,6 +85,9 @@ let g:airline_theme = 'term'
 let g:cool_total_matches = 1
 let g:pickachu_default_color_format = "rgba"
 
+" Give Visual Feedback when tagalong change tags
+let g:tagalong_verbose = 1
+
 " Set Colorscheme to Atom-Dark-2q56
 colorscheme atom-dark-256
 set termguicolors
@@ -92,7 +95,7 @@ set termguicolors
 
 " Function to print OUTPUT in BIG ASCII Characters in terminal 
 function! Output_echo() 
-    :!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";
+	:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";
 endfunction
 
 let mapleader = ","
@@ -125,8 +128,13 @@ nnoremap ,P :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██�
 " JAVA
 nnoremap ,j :w<cr>:!clear;clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";touch TeSt_tEsT_TOSTER.class;rm -r *.class ;javac "%" && java "%:t:r"<cr>
 
+nnoremap ,aj :w<cr>:!clear;clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";touch TeSt_tEsT_TOSTER.class;rm -r *.class ;javac "%" && java "%:t:r" 
+
 " JAVA
 nnoremap ,J :w<cr>:!clear;clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";touch TeSt_tEsT_TOSTER.class;rm -r *.class ;javac *.java && java "%:t:r"<cr>
+
+
+nnoremap ,aJ :w<cr>:!clear;clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";touch TeSt_tEsT_TOSTER.class;rm -r *.class ;javac *.java && java "%:t:r" 
 
 " Special Abbreviation to Expand xcls-auto
 " abbreviate xcls-auto <C-R>=expand('%:t:r')<CR>
@@ -166,13 +174,14 @@ nnoremap ,<space> :wa<cr>
 " let g:ale_python_pylint_options = '--rcfile '.expand('~/.vim/.pylintrc')
 
 let g:syntastic_quiet_messages = {
-        \ "!level":  "errors",
-        \ "type":    "style",
-        \ "regex":   '.*',
-        \ "file:p":  '.*' }
+			\ "!level":  "errors",
+			\ "type":    "style",
+			\ "regex":   '.*',
+			\ "file:p":  '.*' }
 
-" Mapping <F3> to NERDTreeToggle
+" Mapping <F3> and <F2> to NERDTreeToggle
 nnoremap <F3> :NERDTreeToggle<cr><c-w>=<cr>
+nnoremap <F2> :NERDTreeToggle<cr><c-w>=<cr>
 
 " Mapping <F4> Terminal in vim
 nnoremap <F4> :terminal<cr>
@@ -192,3 +201,18 @@ nnoremap ,<F12> :source ~/.vimrc<cr>
 " nnoremap ,h :!live-server . --no-browser<cr>
 nmap ,h :StartLiveServer <cr>
 nmap ,k :KillLiveServer <cr>
+
+
+" Failed Miserably while creating command to auto  .vimrc name in java
+" autocmd FileType java inoremap xls <esc>diW<esc>"%p<space>a
+
+
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<S-Tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
