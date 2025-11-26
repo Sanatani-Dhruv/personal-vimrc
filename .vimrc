@@ -252,4 +252,4 @@ let g:ale_completion_enabled = 1
 set completeopt=menuone,noselect
 
 
-nnoremap <leader>cd :cd %:p:h<cr>
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
