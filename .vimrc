@@ -27,16 +27,23 @@ set showcmd
 
 
 filetype plugin on
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
-set omnifunc=syntaxcomplete#Complete
+"
+" ----------------------------------------------------------------
+" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+" set omnifunc=syntaxcomplete#Complete
+" " Enable omni completion per file.
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" " autocmd FileType html setlocal filetype=php
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" ----------------------------------------------------------------
 
-" Enable omni completion per file.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType html setlocal filetype=php
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" " For Laravel framework
+" autocmd FileType blade setlocal filetype=php
+
+
 
 set completeopt=noinsert,menuone
 
@@ -66,6 +73,12 @@ Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'vim-scripts/SyntaxComplete'
 Plug 'vim-scripts/dbext.vim'
+Plug 'eparreno/vim-l9'
+Plug 'vim-fuzzbox/fuzzbox.vim'
+Plug 'sheerun/vim-polyglot' " For Files like Blade Template .blade.php
+" Plug 'girishji/vimcomplete'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
 
 call plug#end()
 
@@ -111,6 +124,15 @@ nnoremap <F5> :!clear;echo -e "\n ██████╗ ██╗   ██╗█
 nnoremap ,<F5> :w<cr> :!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";python3 "%"<cr>
 
 nnoremap <S-F5> :w<cr> :!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";python3 "%"<cr>
+
+
+" Mapping <leader> + CPP to Command Which will run the current C++ File (Without Saving)
+nnoremap ,CPP :!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";g++ "%" && ./a.out <cr>
+
+" Mapping <leader> + cpp to Command Which will run the current C File (With Saving)
+nnoremap ,cpp :w<cr> :!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";g++ "%" && ./a.out <cr>
+
+
 
 " Mapping <F6> to Command Which will run the current C File (Without Saving)
 nnoremap <F6> :!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";gcc "%" && ./a.out <cr>
@@ -181,7 +203,7 @@ let g:syntastic_quiet_messages = {
 
 " Mapping <F3> and <F2> to NERDTreeToggle
 nnoremap <F3> :NERDTreeToggle<cr><c-w>=<cr>
-nnoremap <F2> :NERDTreeToggle<cr><c-w>=<cr>
+nnoremap <F2> :NERDTreeToggle<cr>
 
 " Mapping <F4> Terminal in vim
 nnoremap <F4> :terminal<cr>
@@ -203,16 +225,31 @@ nmap ,h :StartLiveServer <cr>
 nmap ,k :KillLiveServer <cr>
 
 
-" Failed Miserably while creating command to auto  .vimrc name in java
+" Failed Miserably while creating command to auto name in java
 " autocmd FileType java inoremap xls <esc>diW<esc>"%p<space>a
 
 
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 " - https://github.com/Valloric/YouCompleteMe
 " - https://github.com/nvim-lua/completion-nvim
-let g:UltiSnipsExpandTrigger="<S-Tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<S-Tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
+"
+" source "~/.vim/vimrc.vim"
+"
+"
+" Someone ALE Config
+" set signcolumn=yes
+" nnoremap K :ALEHover<CR>
+nnoremap <leader>gd :ALEGoToDefinition<CR>
+nnoremap <leader>gr :ALEFindReferences<CR>
+nnoremap <leader>ca :ALECodeAction<CR>
+let g:ale_completion_enabled = 1
+set completeopt=menuone,noselect
+
+
+nnoremap <leader>cd :cd %:p:h<cr>
