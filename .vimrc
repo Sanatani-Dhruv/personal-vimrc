@@ -255,11 +255,15 @@ set completeopt=menuone,noselect
 
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 " nnoremap <leader>fg :FuzzyGrep<cr>
-nnoremap <leader>fx "+yiw<cr>:FuzzyGrep <c-r>+
+nnoremap <leader>fw :FuzzyGrep <C-R><C-W><CR>
 nnoremap <leader>fl :FuzzyGitFiles<cr>
+
+" Change all / Slash in Current line and selected area to \
 nnoremap <leader>\\ :s/\//\\/g<cr>
-nnoremap <leader>// :s/\\/\//g<cr>
 vnoremap <leader>\\ :s/\//\\/g<cr>
+
+" Change all \ Slash in Current line and selected area to /
+nnoremap <leader>// :s/\\/\//g<cr>
 vnoremap <leader>// :s/\\/\//g<cr>
 cnoremap Q q
 cnoremap W w
