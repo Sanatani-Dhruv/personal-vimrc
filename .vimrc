@@ -53,6 +53,17 @@ packloadall
 " Install vim-plug by running following command in your terminal
 " curl -s -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+
+function! VimplugInstaller()
+  let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+  if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
+endfunction
+
+call VimplugInstaller()
+
 call plug#begin()
 
 Plug 'preservim/nerdtree'
@@ -61,7 +72,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ap/vim-css-color'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-Plug 'maxboisvert/vim-simple-complete'
+" Plug 'maxboisvert/vim-simple-complete'
 Plug 'BrandonRoehl/auto-omni'
 Plug 'LunarWatcher/auto-pairs'
 Plug 'romainl/vim-cool'
@@ -76,11 +87,28 @@ Plug 'vim-scripts/dbext.vim'
 Plug 'eparreno/vim-l9'
 Plug 'vim-fuzzbox/fuzzbox.vim'
 Plug 'sheerun/vim-polyglot' " For Files like Blade Template .blade.php
-" Plug 'girishji/vimcomplete'
-" Plug 'prabirshrestha/vim-lsp'
-" Plug 'mattn/vim-lsp-settings'
+
+" From Web
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'https://github.com/preservim/tagbar.git'
+Plug 'vim-php/phpctags', {'for':'php'}
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+" From Web ends here
+
+" From vim-laravel
+
+Plug 'tpope/vim-dispatch'             "| Optional
+Plug 'tpope/vim-projectionist'        "|
+Plug 'noahfrederick/vim-composer'     "|
+Plug 'noahfrederick/vim-laravel'
+
+" From vim-laravel ends
 
 call plug#end()
+
+nnoremap <C-P> :FuzzyGitFiles<cr>
+
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
@@ -105,11 +133,6 @@ let g:tagalong_verbose = 1
 colorscheme atom-dark-256
 set termguicolors
 " colorscheme catppuccin_mocha
-
-" Function to print OUTPUT in BIG ASCII Characters in terminal 
-function! Output_echo() 
-	:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";
-endfunction
 
 let mapleader = ","
 " Mapping <leader> key to Run Codes of Different Languages
@@ -144,6 +167,10 @@ nnoremap ,<F6> :w<cr> :!clear;echo -e "\n ██████╗ ██╗   █�
 nnoremap <S-F6> :w<cr> :!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";gcc "%" && ./a.out <cr>
 
 " PHP
+nnoremap ,ap :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";php "%"
+nnoremap ,aP :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";sudo php -S localhost:125 "%"
+
+
 nnoremap ,p :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";php "%"<cr>
 nnoremap ,P :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";sudo php -S localhost:125 "%"<cr>
 
@@ -224,32 +251,15 @@ nnoremap ,<F12> :source ~/.vimrc<cr>
 nmap ,h :StartLiveServer <cr>
 nmap ,k :KillLiveServer <cr>
 
-
-" Failed Miserably while creating command to auto name in java
-" autocmd FileType java inoremap xls <esc>diW<esc>"%p<space>a
-
-
-" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
-" - https://github.com/Valloric/YouCompleteMe
-" - https://github.com/nvim-lua/completion-nvim
-" let g:UltiSnipsExpandTrigger="<S-Tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
-"
-" source "~/.vim/vimrc.vim"
-"
-"
-" Someone ALE Config
-" set signcolumn=yes
-" nnoremap K :ALEHover<CR>
-nnoremap <leader>gd :ALEGoToDefinition<CR>
-nnoremap <leader>gr :ALEFindReferences<CR>
-nnoremap <leader>ca :ALECodeAction<CR>
-let g:ale_completion_enabled = 1
 set completeopt=menuone,noselect
 
-
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+" nnoremap <leader>fg :FuzzyGrep<cr>
+nnoremap <leader>fx "+yiw<cr>:FuzzyGrep <c-r>+
+nnoremap <leader>fl :FuzzyGitFiles<cr>
+nnoremap <leader>\\ :s/\//\\/g<cr>
+nnoremap <leader>// :s/\\/\//g<cr>
+vnoremap <leader>\\ :s/\//\\/g<cr>
+vnoremap <leader>// :s/\\/\//g<cr>
+cnoremap Q q
+cnoremap W w
