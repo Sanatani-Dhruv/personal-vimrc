@@ -267,3 +267,6 @@ nnoremap <leader>// :s/\\/\//g<cr>
 vnoremap <leader>// :s/\\/\//g<cr>
 cnoremap Q q
 cnoremap W w
+
+nnoremap <leader>\;  ^f.C;<esc>Iuse <esc>:s/\//\\/g<cr>
+nnoremap <Leader>cg :execute 'cd' trim(system('git rev-parse --show-toplevel'))<CR>:pwd<CR>
