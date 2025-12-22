@@ -19,7 +19,7 @@ Ctrl+P  "Fuzzy Find Git Files
 
 ,ap     "Run the current PHP File in Terminal with arguments (With Saving)
 ,aP     "Run the current PHP File on Web (PHP's Dev Server) with arguments (With Saving)
-,P      "Run the current PHP File on Web (PHP's Dev Server) with arguments (With Saving)
+,P      "Run the current PHP File on Web (PHP's Dev Server) (With Saving)
 ,p      "Run the current PHP File in Terminal (With Saving)
 
 ,j      "Run the current JAVA File in Terminal (Clear all Existing .class files in current directory, Recompile and Run) (With Saving)
@@ -27,12 +27,12 @@ Ctrl+P  "Fuzzy Find Git Files
 
 Ctrl+n  "Go to next Tab
 
-,e      "Go to next Error (Use ALE Plugin)
-,E      "Go to previous Error (Use ALE Plugin)
+,e      "Go to next Error (Using ALE Plugin)
+,E      "Go to previous Error (Using ALE Plugin)
 
 ,<space> "Save all buffers
 
-<F2>    "Toggle NERDTREE and also readjust window Equally
+<F2>    "Toggle NERDTREE and also re-adjust windows Equally
 <F3>    "Toggle NERDTREE
 
 <F4>    "Open Terminal in pane above
@@ -40,7 +40,7 @@ Ctrl+n  "Go to next Tab
 Ctrl+[Arrow key] 
 " Go to any pane using Ctrl + Arrow
 
-,S      "Disable spell checking (Default - Open)
+,S      "Disable spell checking (Default - Disabled)
 ,s      "Enable spell checking
 
 ,<F12>  "Source ~/.vimrc
