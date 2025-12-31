@@ -84,24 +84,26 @@ Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'vim-scripts/SyntaxComplete'
 Plug 'vim-scripts/dbext.vim'
-Plug 'eparreno/vim-l9'
+" Plug 'eparreno/vim-l9'
 Plug 'vim-fuzzbox/fuzzbox.vim'
 Plug 'sheerun/vim-polyglot' " For Files like Blade Template .blade.php
+Plug 'airblade/vim-tailwind' " For tailwind css autocomplete
+Plug 'chrisbra/unicode.vim' " For unicode characters
 
 " From Web
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'https://github.com/preservim/tagbar.git'
-Plug 'vim-php/phpctags', {'for':'php'}
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
+" Plug 'https://github.com/preservim/tagbar.git'
+" Plug 'vim-php/phpctags', {'for':'php'}
+" Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
 " From Web ends here
 
 " From vim-laravel
 
-Plug 'tpope/vim-dispatch'             "| Optional
-Plug 'tpope/vim-projectionist'        "|
-Plug 'noahfrederick/vim-composer'     "|
-Plug 'noahfrederick/vim-laravel'
+" Plug 'tpope/vim-dispatch'             "| Optional
+" Plug 'tpope/vim-projectionist'        "|
+" Plug 'noahfrederick/vim-composer'     "|
+" Plug 'noahfrederick/vim-laravel'
 
 " From vim-laravel ends
 
@@ -168,17 +170,22 @@ nnoremap <S-F6> :w<cr> :!clear;echo -e "\n ██████╗ ██╗   █
 
 " PHP
 nnoremap ,ap :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";php "%"
-nnoremap ,aP :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";sudo php -S localhost:125 "%"
+nnoremap ,aP :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";sudo php -S localhost:1250 "%"
 
 
 nnoremap ,p :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";php "%"<cr>
-nnoremap ,P :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";sudo php -S localhost:125 "%"<cr>
+nnoremap ,P :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";sudo php -S localhost:1250 "%"<cr>
 
 " JAVA
-nnoremap ,j :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";touch TeSt_tEsT_TOSTER.class;rm -r *.class ;javac "%" && java "%:t:r"<cr>
+nnoremap ,j :w<cr>:!clear;clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";touch TeSt_tEsT_TOSTER.class;rm -r *.class ;javac "%" && java "%:t:r"<cr>
 
-nnoremap ,aj :w<cr>:!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";touch TeSt_tEsT_TOSTER.class;rm -r *.class ;javac "%" && java "%:t:r" 
+nnoremap ,aj :w<cr>:!clear;clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";touch TeSt_tEsT_TOSTER.class;rm -r *.class ;javac "%" && java "%:t:r" 
 
+" JAVA
+nnoremap ,J :w<cr>:!clear;clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";touch TeSt_tEsT_TOSTER.class;rm -r *.class ;javac *.java && java "%:t:r"<cr>
+
+
+nnoremap ,aJ :w<cr>:!clear;clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";touch TeSt_tEsT_TOSTER.class;rm -r *.class ;javac *.java && java "%:t:r" 
 
 " Special Abbreviation to Expand xcls-auto
 " abbreviate xcls-auto <C-R>=expand('%:t:r')<CR>
@@ -243,7 +250,6 @@ nnoremap ,<F12> :source ~/.vimrc<cr>
 
 set completeopt=menuone,noselect
 
-nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 " nnoremap <leader>fg :FuzzyGrep<cr>
 nnoremap <leader>fw :FuzzyGrep <C-R><C-W><CR>
 nnoremap <leader>fl :FuzzyGitFiles<cr>
@@ -259,4 +265,9 @@ cnoremap Q q
 cnoremap W w
 
 nnoremap <leader>\;  ^f.C;<esc>Iuse <esc>:s/\//\\/g<cr>
-nnoremap <Leader>cg :execute 'cd' trim(system('git rev-parse --show-toplevel'))<CR>:pwd<CR>
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+nnoremap <leader>cg :execute 'cd' trim(system('git rev-parse --show-toplevel'))<CR>:pwd<CR>
+nnoremap <leader>nt :tabnew<cr>:FuzzyFiles<cr>
+setlocal completefunc=tailwind#Complete
+autocmd FileType html,blade,php set completefunc=tailwind#Complete
+autocmd FileType html,blade,php nnoremap <leader>gk <Plug>(tailwind-lookup)
