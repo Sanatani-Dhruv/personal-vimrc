@@ -37,7 +37,7 @@ filetype plugin on
 " autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 " " autocmd FileType html setlocal filetype=php
 " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType c AutoOmniLock
+" autocmd FileType c AutoOmniLock
 " ----------------------------------------------------------------
 
 " " For Laravel framework
@@ -89,6 +89,7 @@ Plug 'vim-fuzzbox/fuzzbox.vim'
 Plug 'sheerun/vim-polyglot' " For Files like Blade Template .blade.php
 Plug 'airblade/vim-tailwind' " For tailwind css autocomplete
 Plug 'chrisbra/unicode.vim' " For unicode characters
+Plug 'leafOfTree/vim-svelte-plugin'
 
 " From Web
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -148,7 +149,7 @@ nnoremap <F5> :!clear;echo -e "\n ██████╗ ██╗   ██╗█
 " Mapping <leader> + <F5> to Command Which will run the current Python File (Without Saving)
 nnoremap ,<F5> :w<cr> :!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";python3 "%"<cr>
 
-nnoremap <S-F5> :w<cr> :!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";python3 "%" 
+nnoremap <S-F5> :w<cr> :!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";python3 "%"<cr>
 
 
 " Mapping <leader> + CPP to Command Which will run the current C++ File (Without Saving)
