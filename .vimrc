@@ -66,6 +66,8 @@ call VimplugInstaller()
 
 call plug#begin()
 
+Plug 'leafOfTree/vim-svelte-plugin'
+Plug 'leafOfTree/vim-svelte-theme'
 Plug 'preservim/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
@@ -89,7 +91,6 @@ Plug 'vim-fuzzbox/fuzzbox.vim'
 Plug 'sheerun/vim-polyglot' " For Files like Blade Template .blade.php
 Plug 'airblade/vim-tailwind' " For tailwind css autocomplete
 Plug 'chrisbra/unicode.vim' " For unicode characters
-Plug 'leafOfTree/vim-svelte-plugin'
 
 " From Web
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -245,8 +246,9 @@ nnoremap <C-Up> <c-w>k
 nnoremap <C-Down> <c-w>j
 nnoremap <C-Left> <c-w>h
 nnoremap <C-Right> <c-w>l
-nnoremap ,S :set nospell<cr>
-nnoremap ,s :setlocal spell spelllang=en_us<cr>
+nnoremap ,Sl :set nospell<cr>
+nnoremap ,SL :set nospell<cr>
+nnoremap ,sl :setlocal spell spelllang=en_us<cr>
 
 " Mapping <leader> + <F12> to Source "~/.vimrc" 
 nnoremap ,<F12> :source ~/.vimrc<cr>
@@ -277,6 +279,17 @@ autocmd FileType html,blade,php nnoremap <leader>gk <Plug>(tailwind-lookup)
 autocmd FileType html,blade,php nnoremap <leader>sb :set filetype=blade<cr>
 autocmd FileType html,blade,php nnoremap <leader>sh :set filetype=html<cr>
 autocmd FileType html,blade,php nnoremap <leader>sp :set filetype=php<cr>
+autocmd FileType html nnoremap <leader>ss :set filetype=svelte<cr>
+autocmd FileType html nnoremap <leader>st :set filetype=typescript<cr>
+autocmd FileType css nnoremap <leader>ss :set filetype=svelte<cr>
+autocmd FileType javascript nnoremap <leader>ss :set filetype=svelte<cr>
+autocmd FileType javascript nnoremap <leader>st :set filetype=typescript<cr>
+autocmd FileType typescript nnoremap <leader>ss :set filetype=svelte<cr>
+autocmd FileType svelte nnoremap <leader>sh :set filetype=html<cr>
+autocmd FileType svelte nnoremap <leader>sc :set filetype=css<cr>
+autocmd FileType svelte nnoremap <leader>sj :set filetype=javascript<cr>
+autocmd FileType svelte nnoremap <leader>st :set filetype=typescript<cr>
+autocmd FileType svelte nnoremap <leader>sb :set filetype=blade<cr>
 
 " nnoremap ,js :w<cr> :!clear;echo -e "\n ██████╗ ██╗   ██╗████████╗██████╗ ██╗   ██╗████████╗\n██╔═══██╗██║   ██║╚══██╔══╝██╔══██╗██║   ██║╚══██╔══╝\n██║   ██║██║   ██║   ██║   ██████╔╝██║   ██║   ██║   \n██║   ██║██║   ██║   ██║   ██╔═══╝ ██║   ██║   ██║   \n╚██████╔╝╚██████╔╝   ██║   ██║     ╚██████╔╝   ██║   \n ╚═════╝  ╚═════╝    ╚═╝   ╚═╝      ╚═════╝    ╚═╝   \n------------------------------------------------------\n";node "%"<cr>
 
